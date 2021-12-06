@@ -1,0 +1,65 @@
+﻿@page
+@model Clockcard.Pages.Timetable.DetailsModel
+@section Stylesheets{
+    <link href="@Url.Content("~/css/timetablejs.css")" rel="stylesheet" type="text/css" />
+}
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Employee Timetable</h1>
+
+
+<div class="timetable" style="height:400px; width:100%;"></div>
+<div class="text-center">
+    @section Scripts
+{
+        <script src="@Url.Content("~/js/timetable.js")"></script>
+
+        <script>
+            var timetable = new Timetable();
+            timetable.setScope(0, 23);
+            var Mondaystarttime = new Date('@(Model.Timeline.MONDAYSTARTTIME.Year)', '@(Model.Timeline.MONDAYSTARTTIME.Month)', '@(Model.Timeline.MONDAYSTARTTIME.Day)', '@(Model.Timeline.MONDAYSTARTTIME.Hour)', '@(Model.Timeline.MONDAYSTARTTIME.Minute)');
+            var Mondayendtime = new Date('@(Model.Timeline.MONDAYENDTIME.Year)', '@(Model.Timeline.MONDAYENDTIME.Month)', '@(Model.Timeline.MONDAYENDTIME.Day)', '@(Model.Timeline.MONDAYENDTIME.Hour)', '@(Model.Timeline.MONDAYENDTIME.Minute)');
+            var Tuesdaystarttime = new Date('@(Model.Timeline.TUESDAYSTARTTIME.Year)', '@(Model.Timeline.TUESDAYSTARTTIME.Month)', '@(Model.Timeline.TUESDAYSTARTTIME.Day)', '@(Model.Timeline.TUESDAYSTARTTIME.Hour)', '@(Model.Timeline.TUESDAYSTARTTIME.Minute)');
+            var Tuesdayendtime = new Date('@(Model.Timeline.TUESDAYENDTIME.Year)', '@(Model.Timeline.TUESDAYENDTIME.Month)', '@(Model.Timeline.TUESDAYENDTIME.Day)', '@(Model.Timeline.TUESDAYENDTIME.Hour)', '@(Model.Timeline.TUESDAYENDTIME.Minute)');
+            var Wednesdaystarttime = new Date('@(Model.Timeline.WEDNESDAYSTARTTIME.Year)', '@(Model.Timeline.WEDNESDAYSTARTTIME.Month)', '@(Model.Timeline.WEDNESDAYSTARTTIME.Day)', '@(Model.Timeline.WEDNESDAYSTARTTIME.Hour)', '@(Model.Timeline.WEDNESDAYSTARTTIME.Minute)');
+            var Wednesdayendtime = new Date('@(Model.Timeline.WEDNESDAYENDTIME.Year)', '@(Model.Timeline.WEDNESDAYENDTIME.Month)', '@(Model.Timeline.WEDNESDAYENDTIME.Day)', '@(Model.Timeline.WEDNESDAYENDTIME.Hour)', '@(Model.Timeline.WEDNESDAYENDTIME.Minute)');
+            var Thursdaystarttime = new Date('@(Model.Timeline.THURSDAYSTARTTIME.Year)', '@(Model.Timeline.THURSDAYSTARTTIME.Month)', '@(Model.Timeline.THURSDAYSTARTTIME.Day)', '@(Model.Timeline.THURSDAYSTARTTIME.Hour)', '@(Model.Timeline.THURSDAYSTARTTIME.Minute)');
+            var Thursdayendtime = new Date('@(Model.Timeline.FRIDAYENDTIME.Year)', '@(Model.Timeline.FRIDAYENDTIME.Month)', '@(Model.Timeline.FRIDAYENDTIME.Day)', '@(Model.Timeline.FRIDAYENDTIME.Hour)', '@(Model.Timeline.FRIDAYENDTIME.Minute)');
+            var Fridaystarttime = new Date('@(Model.Timeline.FRIDAYSTARTTIME.Year)', '@(Model.Timeline.FRIDAYSTARTTIME.Month)', '@(Model.Timeline.FRIDAYSTARTTIME.Day)', '@(Model.Timeline.FRIDAYSTARTTIME.Hour)', '@(Model.Timeline.FRIDAYSTARTTIME.Minute)');
+            var Fridayendtime = new Date('@(Model.Timeline.FRIDAYENDTIME.Year)', '@(Model.Timeline.FRIDAYENDTIME.Month)', '@(Model.Timeline.FRIDAYENDTIME.Day)', '@(Model.Timeline.FRIDAYENDTIME.Hour)', '@(Model.Timeline.FRIDAYENDTIME.Minute)');
+            var Saturdaystarttime = new Date('@(Model.Timeline.SATURDAYSTARTTIME.Year)', '@(Model.Timeline.SATURDAYSTARTTIME.Month)', '@(Model.Timeline.SATURDAYSTARTTIME.Day)', '@(Model.Timeline.SATURDAYSTARTTIME.Hour)', '@(Model.Timeline.SATURDAYSTARTTIME.Minute)');
+            var Saturdayendtime = new Date('@(Model.Timeline.SATURDAYENDTIME.Year)', '@(Model.Timeline.SATURDAYENDTIME.Month)', '@(Model.Timeline.SATURDAYENDTIME.Day)', '@(Model.Timeline.SATURDAYENDTIME.Hour)', '@(Model.Timeline.SATURDAYENDTIME.Minute)');
+            var Sundaystarttime = new Date('@(Model.Timeline.SUNDAYSTARTTIME.Year)', '@(Model.Timeline.SUNDAYSTARTTIME.Month)', '@(Model.Timeline.SUNDAYSTARTTIME.Day)', '@(Model.Timeline.SUNDAYSTARTTIME.Hour)', '@(Model.Timeline.SUNDAYSTARTTIME.Minute)');
+            var Sundayendtime = new Date('@(Model.Timeline.SUNDAYENDTIME.Year)', '@(Model.Timeline.SUNDAYENDTIME.Month)', '@(Model.Timeline.SUNDAYENDTIME.Day)', '@(Model.Timeline.SUNDAYENDTIME.Hour)', '@(Model.Timeline.SUNDAYENDTIME.Minute)');
+
+            timetable.addLocations(['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']);
+            timetable.addEvent('Monday', 'Monday', Mondaystarttime, Mondayendtime);
+            timetable.addEvent('Tuesday', 'Tuesday', Tuesdaystarttime, Tuesdayendtime);
+            timetable.addEvent('Wednesday', 'Wednesday', Wednesdaystarttime, Wednesdayendtime);
+            timetable.addEvent('Thursday', 'Thursday', Thursdaystarttime, Thursdayendtime);
+            timetable.addEvent('Friday', 'Friday', Fridaystarttime, Fridayendtime);
+            timetable.addEvent('Saturday', 'Saturday', Saturdaystarttime, Saturdayendtime);
+            timetable.addEvent('Sunday', 'Sunday', Sundaystarttime, Sundayendtime);
+            var renderer = new Timetable.Renderer(timetable);
+            renderer.draw('.timetable'); // any css selector
+        </script>
+        
+    }
+</div>
+<div class="text-center">
+    @*Stops Employee from seeing edit*@
+@{
+
+    if (Model.role.Equals("2") || Model.role.Equals("3"))
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.Timeline.ID">Edit</a>
+    }
+}
+
+<a asp-page="./Index">Back to List</a>
+</div>
+<td>
+    <a href="~/Secured">Main Menu</a>
+</td>

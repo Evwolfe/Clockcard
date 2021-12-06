@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Clockcard</title>
+    <link rel="icon" href="img/Clockcard.png" sizes="32x32" type="image/png">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    @RenderSection("Stylesheets", required: false)
+    <script src="@Url.Content("~/js/timetable.js")"></script>
+</head>
+<body>
+    <header>
+        @*div style="background-color:purple !important;"*@
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        @*No Role no Menu *@
+                        @{
+                            var roleSession = new Byte[20];
+                            bool HasRole = Context.Session.TryGetValue("Role", out roleSession);
+                            if (HasRole)
+                            {
+                                string role = System.Text.Encoding.UTF8.GetString(roleSession);
+                                <a class="navbar-brand" asp-area="" asp-page="/Secured"><img class="mb-4" src="~/img/Clockcard.png" alt="" width="57" height="57"></a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/ClockCard/index">Clock in</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Timetable/index">TimeTable</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Employeedetail/index">Employee Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-page="/Logout">Log Out</a>
+                                </li>
+
+                            }
+                        }
+
+
+                        @*    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-page="/Employeedetail/index">Log</a>
+        </li>*@
+
+                        @*Old log out *@
+                        @*                        @{
+        if (User.Identity.IsAuthenticated)
+        {
+        <li class="nav-item">
+        <a class="nav-link text-dark" " asp-area="Identity" asp-page="/Account/Logout">Log </a>
+        </li>
+        }
+        else
+        {
+        <p>You have successfully logged out of the application.</p>
+        }
+        }*@
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Clockcard - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

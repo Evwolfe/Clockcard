@@ -1,0 +1,42 @@
+﻿@page
+@model Clockcard.Pages.SecuredModel
+@{
+}
+
+<h1 class="display-4">Welcome to Clockcard!</h1>
+@*<p>Employee: @TempData["Empref"]</p>*@
+
+@*@{
+    @inject Clockcard.Utils.Enums Enums;
+
+    var Empref = Enums.getSessionValues("Empref");
+}*@
+<div style="display:flex; flex-direction:row">
+    <div class="Icon">
+        <a class="nav-link text-dark" asp-area="" asp-page="ClockCard/Index">Clock in</a>
+        <a href="~/Clockcard">
+            <img class="mb-4" src="~/img/Clockcardicon.png" alt="" width="120" height="120">
+        </a>
+    </div>
+
+    <div class="Icon">
+        <a class="nav-link text-dark" asp-area="" asp-page="EmployeeDetail/Index">Employee Details</a>
+        <a href="~/EmployeeDetail">
+            <img class="mb-4" src="~/img/Empdetails.png" alt="" width="120" height="120">
+        </a>
+    </div>
+
+    <div class="Icon">
+        <a class="nav-link text-dark" asp-area="" asp-page="TimeTable/Index">TimeTable</a>
+        <a href="~/Timetable">
+            <img class="mb-4" src="~/img/Timetable.png" alt="" width="120" height="120">
+        </a>
+    </div>
+</div>
+
+@*<div class="Icon">
+    <a class="nav-link text-dark" asp-area="" asp-page="EmployeeDetail/Index">Employee List</a>
+    <a href="~/EmployeeDetail">
+    <img class="mb-4" src="~/img/Admin.png" alt="" width="120" height="120">
+    </a>
+    </div>*@

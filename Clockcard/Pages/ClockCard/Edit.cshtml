@@ -1,0 +1,52 @@
+﻿@page
+@model Clockcard.Pages.ClockCard.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Clock</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Clock.ID" />
+            <div class="form-group">
+                @*altering the dropdown menu *@
+                @Html.DropDownListFor(m => m.Clock.EMPREF,
+                            new SelectList(
+                                Model.EmployeesDict,
+                                "Key",
+                                "Value"), new { @class = "form-control" })
+                @* old way to alter the dropdown menu *@
+                @*                <label asp-for="Clock.EMPREF" class="control-label"></label>
+        <input asp-for="Clock.EMPREF" class="form-control" />
+        <span asp-validation-for="Clock.EMPREF" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Clock.STARTTIME" class="control-label"></label>
+                <input asp-for="Clock.STARTTIME" class="form-control" />
+                <span asp-validation-for="Clock.STARTTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Clock.ENDTIME" class="control-label"></label>
+                <input asp-for="Clock.ENDTIME" class="form-control" />
+                <span asp-validation-for="Clock.ENDTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets.user"
+    },
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/finalyear/databases/Clocking Details",
+      "type": "mssql.azure",
+      "connectionId": "finalyear.database.windows.net",
+      "secretStore": "LocalSecretsFile"
+    },
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:ClockcardContext"
+    },
+    "mssql3": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:ClockcardContextIdentityConnection"
+    },
+    "mssql4": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:ClockcardContextListConnection"
+    }
+  }
+}

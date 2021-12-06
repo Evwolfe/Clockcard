@@ -1,0 +1,63 @@
+﻿@page
+@model Clockcard.Pages.EmployeeDetails.IndexModel
+
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+<h1>Employee List</h1>
+@{
+    if (Model.role.Equals("3"))
+    {
+        <p>
+            <a asp-page="Create">Create New</a>
+        </p>
+    }
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpDetails[0].USERNAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpDetails[0].FIRSTNAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpDetails[0].SURNAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpDetails[0].ISACTIVE)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.EmpDetailsVMList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USERNAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FIRSTNAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SURNAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISACTIVE)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.EMPREF">Details</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+<td>
+    <a href="~/Secured">Main Menu</a>
+</td>

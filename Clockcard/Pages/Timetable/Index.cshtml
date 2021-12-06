@@ -1,0 +1,52 @@
+﻿@page
+@model Clockcard.Pages.Timetable.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Employee Timetables</h1>
+@{
+    @*Stops employee from seeing create*@
+    if (Model.role.Equals("2") || Model.role.Equals("3"))
+    {
+        <p>
+            <a asp-page="Create">Create New</a>
+        </p>
+    }
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Timeline[0].EMPREF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimelineVMList[0].Name)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TimelineVMList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<td>
+    <a href="~/Secured">Main Menu</a>
+</td>

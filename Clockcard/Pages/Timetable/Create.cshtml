@@ -1,0 +1,111 @@
+﻿@page
+@model Clockcard.Pages.Timetable.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Timetable</h1>
+
+<h4>Timeline</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @*alter the dropdown menu *@
+                @Html.DropDownListFor(m => m.Timeline.EMPREF,
+                                         new SelectList(
+                                             Model.EmployeesDict,
+                                             "Key",
+                                             "Value"), new { @class = "form-control" })
+                @*Old way to alter the dropdown menu *@
+                @*                <label asp-for="Timeline.EMPREF" class="control-label"></label>
+        <input asp-for="Timeline.EMPREF" class="form-control" />
+        <span asp-validation-for="Timeline.EMPREF" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.MONDAYSTARTTIME" class="control-label"></label>
+                <input asp-for="Timeline.MONDAYSTARTTIME" class="form-control" />
+                <span asp-validation-for="Timeline.MONDAYSTARTTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.MONDAYENDTIME" class="control-label"></label>
+                <input asp-for="Timeline.MONDAYENDTIME" class="form-control" />
+                <span asp-validation-for="Timeline.MONDAYENDTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.TUESDAYSTARTTIME" class="control-label"></label>
+                <input asp-for="Timeline.TUESDAYSTARTTIME" class="form-control" />
+                <span asp-validation-for="Timeline.TUESDAYSTARTTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.TUESDAYENDTIME" class="control-label"></label>
+                <input asp-for="Timeline.TUESDAYENDTIME" class="form-control" />
+                <span asp-validation-for="Timeline.TUESDAYENDTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.WEDNESDAYSTARTTIME" class="control-label"></label>
+                <input asp-for="Timeline.WEDNESDAYSTARTTIME" class="form-control" />
+                <span asp-validation-for="Timeline.WEDNESDAYSTARTTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.WEDNESDAYENDTIME" class="control-label"></label>
+                <input asp-for="Timeline.WEDNESDAYENDTIME" class="form-control" />
+                <span asp-validation-for="Timeline.WEDNESDAYENDTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.THURSDAYSTARTTIME" class="control-label"></label>
+                <input asp-for="Timeline.THURSDAYSTARTTIME" class="form-control" />
+                <span asp-validation-for="Timeline.THURSDAYSTARTTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.THURSDAYENDTIME" class="control-label"></label>
+                <input asp-for="Timeline.THURSDAYENDTIME" class="form-control" />
+                <span asp-validation-for="Timeline.THURSDAYENDTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.FRIDAYSTARTTIME" class="control-label"></label>
+                <input asp-for="Timeline.FRIDAYSTARTTIME" class="form-control" />
+                <span asp-validation-for="Timeline.FRIDAYSTARTTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.FRIDAYENDTIME" class="control-label"></label>
+                <input asp-for="Timeline.FRIDAYENDTIME" class="form-control" />
+                <span asp-validation-for="Timeline.FRIDAYENDTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.SATURDAYSTARTTIME" class="control-label"></label>
+                <input asp-for="Timeline.SATURDAYSTARTTIME" class="form-control" />
+                <span asp-validation-for="Timeline.SATURDAYSTARTTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.SATURDAYENDTIME" class="control-label"></label>
+                <input asp-for="Timeline.SATURDAYENDTIME" class="form-control" />
+                <span asp-validation-for="Timeline.SATURDAYENDTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.SUNDAYSTARTTIME" class="control-label"></label>
+                <input asp-for="Timeline.SUNDAYSTARTTIME" class="form-control" />
+                <span asp-validation-for="Timeline.SUNDAYSTARTTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Timeline.SUNDAYENDTIME" class="control-label"></label>
+                <input asp-for="Timeline.SUNDAYENDTIME" class="form-control" />
+                <span asp-validation-for="Timeline.SUNDAYENDTIME" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

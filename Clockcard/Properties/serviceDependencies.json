@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "secrets1": {
+      "type": "secrets"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "finalyear.database.windows.net"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:ClockcardContext"
+    },
+    "mssql3": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:ClockcardContextIdentityConnection"
+    },
+    "mssql4": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:ClockcardContextListConnection"
+    }
+  }
+}

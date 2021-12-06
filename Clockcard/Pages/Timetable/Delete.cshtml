@@ -1,0 +1,112 @@
+﻿@page
+@model Clockcard.Pages.Timetable.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete Timetable</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Timeline</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.EMPREF)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.EMPREF)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.MONDAYSTARTTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.MONDAYSTARTTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.MONDAYENDTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.MONDAYENDTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.TUESDAYSTARTTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.TUESDAYSTARTTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.TUESDAYENDTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.TUESDAYENDTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.WEDNESDAYSTARTTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.WEDNESDAYSTARTTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.WEDNESDAYENDTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.WEDNESDAYENDTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.THURSDAYSTARTTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.THURSDAYSTARTTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.THURSDAYENDTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.THURSDAYENDTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.FRIDAYSTARTTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.FRIDAYSTARTTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.FRIDAYENDTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.FRIDAYENDTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.SATURDAYSTARTTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.SATURDAYSTARTTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.SATURDAYENDTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.SATURDAYENDTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.SUNDAYSTARTTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.SUNDAYSTARTTIME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Timeline.SUNDAYENDTIME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Timeline.SUNDAYENDTIME)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Timeline.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,74 @@
+﻿@page
+@model Clockcard.Pages.EmployeeDetails.DetailsModel
+
+@{
+    ViewData["Title"] = "EmpDetails";
+}
+
+
+<div>
+    <h1>Employee Details</h1>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpDetailsVM.USERNAME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpDetailsVM.USERNAME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpDetailsVM.FIRSTNAME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpDetailsVM.FIRSTNAME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpDetailsVM.SURNAME)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpDetailsVM.SURNAME)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpDetailsVM.PHONE)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpDetailsVM.PHONE)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpDetailsVM.EMAIL)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpDetailsVM.EMAIL)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpDetailsVM.ROLE)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpDetailsVM.ROLE)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpDetailsVM.ISACTIVE)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpDetailsVM.ISACTIVE)
+        </dd>
+    </dl>
+</div>
+<div>
+@{
+
+    if ( Model.role.Equals("3"))
+    {
+    <a asp-page="./Edit" asp-route-id="@Model.EmpDetails.EMPREF">Edit</a> 
+    }
+}
+
+    <a asp-page="./Index">Back to List</a>
+</div>
+<div>
+    @*<a asp-page="Timetable/Details" asp-route-id="@Model.Timeline.EMPREF">TimeTable</a>*@
+    @*<a asp-page="Clockcard/Details" asp-route-id="@Model.Clock.EMPREF">TimeTable</a>*@
+    <td>
+        <a href="~/Secured">Main Menu</a>
+    </td>
+</div>
