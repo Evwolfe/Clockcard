@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Clockcard.Data;
 using Clockcard.Models;
+using static Clockcard.Utils.Enums;
 
 namespace Clockcard.Pages.EmployeeDetails
 {
@@ -22,6 +23,8 @@ namespace Clockcard.Pages.EmployeeDetails
 
         [BindProperty]
         public EmpDetails EmpDetails { get; set; }
+        public Dictionary<int, string> ActiveDict { get; set; }
+        public Dictionary<int, string> RoleDict { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,7 +33,16 @@ namespace Clockcard.Pages.EmployeeDetails
                 return NotFound();
             }
 
+            ActiveDict = new Dictionary<int, string>();
+            ActiveDict.Add((int)Active.No, Active.No.ToString());
+            ActiveDict.Add((int)Active.Yes, Active.Yes.ToString());
+            RoleDict = new Dictionary<int, string>();
+            RoleDict.Add((int)EmployeeRole.Employee, EmployeeRole.Employee.ToString());
+            RoleDict.Add((int)EmployeeRole.Manager, EmployeeRole.Manager.ToString());
+            RoleDict.Add((int)EmployeeRole.Admin, EmployeeRole.Admin.ToString());
+
             EmpDetails = await _context.EmpDetails.FirstOrDefaultAsync(m => m.EMPREF == id);
+            TempData["Password"] = EmpDetails.PASSWORD;
 
             if (EmpDetails == null)
             {
@@ -46,6 +58,10 @@ namespace Clockcard.Pages.EmployeeDetails
             if (!ModelState.IsValid)
             {
                 return Page();
+            }
+            if(EmpDetails.PASSWORD == null || EmpDetails.PASSWORD == "")
+            {
+                EmpDetails.PASSWORD = (string)TempData["Password"];
             }
 
             _context.Attach(EmpDetails).State = EntityState.Modified;

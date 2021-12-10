@@ -6,23 +6,73 @@
 }
 
 <h1>Employee Clockcard</h1>
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
+@{
+    if (Model.role.Equals("2") || Model.role.Equals("3"))
+    {
+        <p>
+            <a asp-page="Create">Create New</a>
+        </p>
+        <div class="form-group">
+              <form id="emp" method="post" asp-page-handler="FilterTable">
+                <select class="form-control" 
+                        asp-for="selectedEmployee" 
+                        asp-items="Model.EmployeesSelectList" 
+                        onchange="handleOnSubmit();">
+                </select>
+                </form>
+        </div>
+    }
+}
+
+
+    @{
+        if(Model.hasClockedIn == "False")
+        {
+            <form class="formclock" id="clockinForm" asp-page-handler="CreateClock" method="post">  
+                <button class="clockbutton" id="clockinbutton" type="submit" >
+                    Clock In
+                </button>
+            </form>
+        }
+        if(Model.hasClockedIn == "True")
+        {
+            <form class="formclock" id="clockOutForm" asp-page-handler="UpdateClock" method="post">  
+                <button class="clockbutton" id="clockoutbutton" type="submit">
+                    Clock out
+                </button>
+            </form>
+        }
+    }
+<style>
+    .clockbutton{
+            width: 6em;
+            height: 3em;
+            border-radius: 3em;
+            background-color: purple;
+            color: white;
+            font-size: 2em;
+            margin: 0 0 0.5em 0;
+    }
+    .formclock{
+        display:flex;
+        justify-content:center;
+    }
+</style>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Clock[0].EMPREF)
+                @Html.DisplayNameFor(model => model.ClockList[0].EMPREF)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ClockVMList[0].FullName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Clock[0].STARTTIME)
+                @Html.DisplayNameFor(model => model.ClockList[0].STARTTIME)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Clock[0].ENDTIME)
+                @Html.DisplayNameFor(model => model.ClockList[0].ENDTIME)
             </th>
             <th></th>
         </tr>
@@ -44,7 +94,8 @@
                     @Html.DisplayFor(modelItem => item.ENDTIME)
                 </td>
                 <td>
-                    @{   @* used to stop the employees from seeing the edit and delete*@
+                    @{
+                        @* used to stop the employees from seeing the edit and delete*@
 
                         if (Model.role.Equals("2") || Model.role.Equals("3"))
                         {
@@ -62,3 +113,31 @@
 <td>
     <a href="~/Secured">Main Menu</a>
 </td>
+
+@section Scripts{
+    <script>
+        function handleOnSubmit(){
+
+            //document.getElementById("emp").preventDefault();
+            document.getElementById("emp").submit();
+            //this.form.submit(); return false;
+            return false;
+        }
+        //function handleOnChange(selectedID){
+        //    console.log(selectedID);
+        //    $.ajax({
+        //        type: "POST",
+        //        url: "?handler=FilterTable",
+        //        headers: { "cache-control": "no-cache" },
+        //        contentType: 'application/json',
+        //        data: JSON.stringify({ param: selectedID }),
+        //        success: function (result) {
+        //            console.log(result)
+        //        },
+        //        failure: function (error) {
+        //            console.log(error)
+        //        }
+        //    });
+        //}
+    </script>
+}

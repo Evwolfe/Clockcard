@@ -23,6 +23,7 @@ namespace Clockcard.Pages.Timetable
         [BindProperty]
         public Timeline Timeline { get; set; }
 
+        public int tempempref { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -31,6 +32,7 @@ namespace Clockcard.Pages.Timetable
             }
 
             Timeline = await _context.Timeline.FirstOrDefaultAsync(m => m.ID == id);
+            tempempref = Timeline.EMPREF;
 
             if (Timeline == null)
             {
@@ -47,11 +49,12 @@ namespace Clockcard.Pages.Timetable
             {
                 return Page();
             }
-
+            //Timeline.EMPREF = tempempref;
             _context.Attach(Timeline).State = EntityState.Modified;
 
             try
             {
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)

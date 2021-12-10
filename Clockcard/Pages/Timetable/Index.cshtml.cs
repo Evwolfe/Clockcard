@@ -21,20 +21,25 @@ namespace Clockcard.Pages.Timetable
             _context = context;
         }
         public string role = "";
-        public IList<Timeline> Timeline { get;set; }
+        public IList<Timeline> Timeline { get; set; }
         public IList<TimelineVM> TimelineVMList { get; set; }
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
-           Timeline = await _context.Timeline.ToListAsync();
+
+            string empRef = Enums.getSessionValues("Empref", HttpContext);
 
             role = Enums.getSessionValues("Role", HttpContext);
+
+            Timeline = await _context.Timeline.ToListAsync();
+
+
             //var roleSession = new Byte[20];
             //bool HasRole = HttpContext.Session.TryGetValue("Role", out roleSession);
             //if (HasRole)
             //{
             //    role = System.Text.Encoding.UTF8.GetString(roleSession);
             //}
-            string empRef =  Enums.getSessionValues("Empref", HttpContext);
+
             //var empRefSession = new Byte[20];
             //bool EmprefOK = HttpContext.Session.TryGetValue("Empref", out empRefSession);
             //string empRef = "";
@@ -55,13 +60,15 @@ namespace Clockcard.Pages.Timetable
                       LastName = e.SURNAME,
                       Username = e.USERNAME,
                       Role = e.ROLE
-                      
+
                   }
                   ).ToListAsync();
-            
+
             if (role.Equals("1"))
             {
                 var filteredData = data.Result.Where(q => q.Empref.ToString() == empRef).ToList();
+
+
                 TimelineVMList = new List<TimelineVM>();
                 foreach (var item in filteredData)
                 {
@@ -77,6 +84,13 @@ namespace Clockcard.Pages.Timetable
 
                     }
                 }
+
+                int Timetableid = TimelineVMList[0].ID;
+                string returnUrl = "~/Timetable/Details?id=" + Timetableid;
+                returnUrl ??= Url.Content(returnUrl);
+                return LocalRedirect(returnUrl);
+
+
             }
             else
             {
@@ -96,7 +110,8 @@ namespace Clockcard.Pages.Timetable
                     }
                 }
             }
-            
+            return Page();
+
         }
 
     }

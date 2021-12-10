@@ -44,12 +44,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="EmpDetails.ROLE" class="control-label"></label>
-                <input asp-for="EmpDetails.ROLE" class="form-control" />
+                @Html.DropDownListFor(m => m.EmpDetails.ROLE,
+                new SelectList(
+                Model.RoleDict,
+                "Key",
+                "Value"),new { @class = "form-control" })
+                @*<input asp-for="EmpDetails.ROLE" class="form-control" />*@
                 <span asp-validation-for="EmpDetails.ROLE" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EmpDetails.ISACTIVE" class="control-label"></label>
-                <input asp-for="EmpDetails.ISACTIVE" class="form-control" />
+                @Html.DropDownListFor(m => m.EmpDetails.ISACTIVE,
+                new SelectList(
+                Model.ActiveDict,
+                "Key",
+                "Value"),new { @class = "form-control" })
+                @*<input asp-for="EmpDetails.ISACTIVE" class="form-control" />*@
                 <span asp-validation-for="EmpDetails.ISACTIVE" class="text-danger"></span>
             </div>
             <div class="form-group">

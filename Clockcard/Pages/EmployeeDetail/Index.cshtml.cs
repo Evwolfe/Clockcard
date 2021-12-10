@@ -26,7 +26,7 @@ namespace Clockcard.Pages.EmployeeDetails
 
         public string role = "";
 
-        public async Task OnGetAsync(Active active)
+        public async Task<IActionResult> OnGetAsync(Active active)
         {
             EmpDetails = await _context.EmpDetails.ToListAsync();
 
@@ -37,7 +37,7 @@ namespace Clockcard.Pages.EmployeeDetails
             //if (HasRole)
             //{
             //    role = System.Text.Encoding.UTF8.GetString(roleSession);
-            //}
+            //} 
 
             string empRef =  Utils.Enums.getSessionValues("Empref", HttpContext);
             //var empRefSession = new Byte[20];
@@ -53,6 +53,9 @@ namespace Clockcard.Pages.EmployeeDetails
                 var filteredData = EmpDetails.Where(q => q.EMPREF.ToString() == empRef);
 
                 EmpDetails = filteredData.ToList();
+                string returnUrl = "~/EmployeeDetail/Details?id=" + empRef;
+                returnUrl ??= Url.Content(returnUrl);
+                return LocalRedirect(returnUrl);
 
             }
             EmpDetailsVMList = new List<EmpDetailsVM>();
@@ -70,6 +73,7 @@ namespace Clockcard.Pages.EmployeeDetails
                     ROLE = (EmployeeRole)emp.ROLE,
                 });
             }
+            return Page();
 
         }
     }

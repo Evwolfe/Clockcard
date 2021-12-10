@@ -14,11 +14,11 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Timeline.ID" />
-            @*<div class="form-group">
+            <div style="display:none">
                 <label asp-for="Timeline.EMPREF" class="control-label"></label>
                 <input asp-for="Timeline.EMPREF" class="form-control" />
                 <span asp-validation-for="Timeline.EMPREF" class="text-danger"></span>
-            </div>*@
+            </div>
             <div class="form-group">
                 <label asp-for="Timeline.MONDAYSTARTTIME" class="control-label"></label>
                 <input asp-for="Timeline.MONDAYSTARTTIME" class="form-control" />
