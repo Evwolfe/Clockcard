@@ -11,6 +11,7 @@ namespace Clockcard.Models
     {
         [Key]
         public int EMPREF { get; set; }
+        //[Key]
 
         [DisplayName("Employee No.")]
         public string USERNAME { get; set; }
@@ -33,7 +34,7 @@ namespace Clockcard.Models
         [DisplayName("Role")]
         public int ROLE { get; set; }
 
-        [DisplayName("Active Employee")]
+        [DisplayName("Active")]
         public int ISACTIVE { get; set; }
     }
 }

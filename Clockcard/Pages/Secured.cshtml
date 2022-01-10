@@ -3,7 +3,7 @@
 @{
 }
 
-<h1 class="display-4">Welcome to Clockcard!</h1>
+<h1 class="display-4"><b>Welcome to Clockcard!</b></h1>
 @*<p>Employee: @TempData["Empref"]</p>*@
 
 @*@{
@@ -11,23 +11,24 @@
 
     var Empref = Enums.getSessionValues("Empref");
 }*@
+
 <div style="display:flex; flex-direction:row">
-    <div class="Icon">
-        <a class="nav-link text-dark" asp-area="" asp-page="ClockCard/Index">Clock in</a>
+    <div class="Icon" style="text-align:center">
+        <a class="nav-link text-dark" asp-area="" asp-page="ClockCard/Index"><h4><b>Clock in</b></h4></a>
         <a href="~/Clockcard">
             <img class="mb-4" src="~/img/Clockcardicon.png" alt="" width="120" height="120">
         </a>
     </div>
 
-    <div class="Icon">
-        <a class="nav-link text-dark" asp-area="" asp-page="EmployeeDetail/Index">Employee Details</a>
+    <div class="Icon"style="text-align:center">
+        <a class="nav-link text-dark" asp-area="" asp-page="EmployeeDetail/Index"><h4><b>Employee Details</b></h4></a>
         <a href="~/EmployeeDetail">
             <img class="mb-4" src="~/img/Empdetails.png" alt="" width="120" height="120">
         </a>
     </div>
 
-    <div class="Icon">
-        <a class="nav-link text-dark" asp-area="" asp-page="TimeTable/Index">TimeTable</a>
+    <div class="Icon"style="text-align:center">
+        <a class="nav-link text-dark" asp-area="" asp-page="TimeTable/Index"><h4><b>TimeTable</b></h4></a>
         <a href="~/Timetable">
             <img class="mb-4" src="~/img/Timetable.png" alt="" width="120" height="120">
         </a>

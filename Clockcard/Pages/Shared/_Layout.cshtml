@@ -10,11 +10,11 @@
     @RenderSection("Stylesheets", required: false)
     <script src="@Url.Content("~/js/timetable.js")"></script>
 </head>
-<body>
+<body style="background-color: #e600e6; Color: white">
     <header>
-        @*div style="background-color:purple !important;"*@
+        @*<div style="background-color: #924091 !important;">*@
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
+            <div class="container" style="text-align:center">
 
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
@@ -25,22 +25,23 @@
                             if (HasRole)
                             {
                                 string role = System.Text.Encoding.UTF8.GetString(roleSession);
-                                <a class="navbar-brand" asp-area="" asp-page="/Secured"><img class="mb-4" src="~/img/Clockcard.png" alt="" width="57" height="57"></a>
+                                <a class="navbar-brand" asp-area="" asp-page="/Secured"><img class="mb-4" src="~/img/Clockcard.png" alt="" width="57" height="57" style="padding:.5em"></a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                                         aria-expanded="false" aria-label="Toggle navigation">
                                     <span class="navbar-toggler-icon"></span>
                                 </button>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/ClockCard/index">Clock in</a>
+                                    <h4><b><a class="nav-link text-dark" style="padding: 1em" asp-page="/ClockCard/index">Clock in</a></b></h4>
+                                </li>
+                                <li class="nav-item align-content-center">
+                                    <h4><b><a class="nav-link text-dark" style="padding: 1em" asp-area="" asp-page="/Employeedetail/index">Employee Details</a></b></h4>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/Timetable/index">TimeTable</a>
+                                    <h4><b><a class="nav-link text-dark" style="padding: 1em" asp-area="" asp-page="/Timetable/index">TimeTable</a></b></h4>
                                 </li>
+
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/Employeedetail/index">Employee Details</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-page="/Logout">Log Out</a>
+                                    <h4><b><a class="nav-link text-dark" style="padding: 1em" asp-area="" asp-page="/Logout">Log Out</a></b></h4>
                                 </li>
 
                             }
@@ -69,6 +70,7 @@
                 </div>
             </div>
         </nav>
+        @*</div>*@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -76,11 +78,11 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Clockcard - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    @*<footer class="border-top footer text-muted page-footer"style="background-color: #924090">
+        <div class="container" style="color: white">
+            &copy; 2021 - Clockcard - By Evan Wolfe - <a asp-area="" asp-page="/Privacy" style="color: #e600e6">Privacy</a>
         </div>
-    </footer>
+    </footer>*@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -8,28 +8,31 @@
 <h1>Employee Timetables</h1>
 @{
     @*Stops employee from seeing create*@
-    if (Model.role.Equals("2") || Model.role.Equals("3"))
+    if (Model.role.Equals("3"))
     {
         <p>
-            <a asp-page="Create">Create New</a>
+            <a asp-page="Create" style="color: #924091"><b><h3>New Employee Timetable</h3></b></a>
         </p>
     }
 }
 
-<table class="table">
+<table class="table" style="color: #924091">
+
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Timeline[0].EMPREF)
+                <h3>@Html.DisplayNameFor(model => model.Timeline[0].EMPREF)</h3>
+
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TimelineVMList[0].Name)
+                <h3>@Html.DisplayNameFor(model => model.TimelineVMList[0].Name)</h3>
+
             </th>
 
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="color:white">
         @foreach (var item in Model.TimelineVMList)
         {
             <tr>
@@ -41,12 +44,12 @@
                 </td>
 
                 <td>
-                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                    <a asp-page="./Details" asp-route-id="@item.ID"style="color: #924091"><b>Details</b></a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<td>
-    <a href="~/Secured">Main Menu</a>
-</td>
+<div class="text-center">
+    <a href="~/Secured" style="color: #924091"><h3><b>Main Menu</b></h3></a>
+</div>

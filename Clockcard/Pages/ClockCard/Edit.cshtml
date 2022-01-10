@@ -7,7 +7,7 @@
 
 <h1>Edit</h1>
 
-<h4>Clock</h4>
+<h4 style="color: #924091"><b>Clock</b></h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -23,28 +23,32 @@
                                 "Value"), new { @class = "form-control" })
                 @* old way to alter the dropdown menu *@
                 @*                <label asp-for="Clock.EMPREF" class="control-label"></label>
-        <input asp-for="Clock.EMPREF" class="form-control" />
-        <span asp-validation-for="Clock.EMPREF" class="text-danger"></span>*@
+                    <input asp-for="Clock.EMPREF" class="form-control" />
+                    <span asp-validation-for="Clock.EMPREF" class="text-danger"></span>*@
             </div>
             <div class="form-group">
-                <label asp-for="Clock.STARTTIME" class="control-label"></label>
+                <h4><b><label asp-for="Clock.STARTTIME" class="control-label" style="color: #924091"></label></b></h4>
                 <input asp-for="Clock.STARTTIME" class="form-control" />
                 <span asp-validation-for="Clock.STARTTIME" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Clock.ENDTIME" class="control-label"></label>
+                <h4>
+                    <b>
+                        <label asp-for="Clock.ENDTIME" class="control-label" style="color: #924091"></label>
+                    </b>
+                </h4>
                 <input asp-for="Clock.ENDTIME" class="form-control" />
                 <span asp-validation-for="Clock.ENDTIME" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" style="background-color: #924090; color: white">
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index"style="color: #924091"><h3><b>Back to List</b></h3></a>
 </div>
 
 @section Scripts {

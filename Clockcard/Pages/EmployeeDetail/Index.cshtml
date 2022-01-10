@@ -10,31 +10,31 @@
     if (Model.role.Equals("3"))
     {
         <p>
-            <a asp-page="Create">Create New</a>
+            <a asp-page="Create" style="color: #924091"><h3><b>Create New</b></h3></a>
         </p>
     }
 }
 
 
-<table class="table">
+<table class="table"style="color: #924091">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.EmpDetails[0].USERNAME)
+                <h3>@Html.DisplayNameFor(model => model.EmpDetails[0].USERNAME)</h3>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmpDetails[0].FIRSTNAME)
+                <h3>@Html.DisplayNameFor(model => model.EmpDetails[0].FIRSTNAME)</h3>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmpDetails[0].SURNAME)
+                <h3>@Html.DisplayNameFor(model => model.EmpDetails[0].SURNAME)</h3>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EmpDetails[0].ISACTIVE)
+                <h3>@Html.DisplayNameFor(model => model.EmpDetails[0].ISACTIVE)</h3>
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="color:white">
         @foreach (var item in Model.EmpDetailsVMList)
         {
             <tr>
@@ -51,13 +51,13 @@
                     @Html.DisplayFor(modelItem => item.ISACTIVE)
                 </td>
                 <td>
-                    <a asp-page="./Details" asp-route-id="@item.EMPREF">Details</a>
+                    <a asp-page="./Details" asp-route-id="@item.EMPREF"style="color: #924091"><b>Details</b></a>
                 </td>
             </tr>
 
         }
     </tbody>
 </table>
-<td>
-    <a href="~/Secured">Main Menu</a>
-</td>
+<div class="text-center">
+    <a href="~/Secured" style="color: #924091"><h3><b>Main Menu</b></h3></a>
+    </div>

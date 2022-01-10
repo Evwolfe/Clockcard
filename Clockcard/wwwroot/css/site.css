@@ -6,9 +6,36 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
-
-header {
+html, body, .cover {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.cover {
     background-color: #924091;
+}
+.filler {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    z-index: 2;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+    header {
+    background-color: #924091;
+    width:100%;
 }
 
 /* Provide sufficient contrast against white background */
@@ -23,7 +50,7 @@ a {
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
+  color: white
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
@@ -63,15 +90,22 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
+  
+  
   width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  
+  
+}
+.page-footer {
+    flex-shrink: 0;
+    line-height: 60px; /* Vertically center the text there */
+    white-space: nowrap;
+    bottom: 0;
+    position: fixed;
 }
 
 .Icon {

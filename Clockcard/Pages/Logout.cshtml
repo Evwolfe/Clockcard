@@ -2,14 +2,21 @@
 @model Clockcard.Pages.LogoutModel
 @{
 }
-<header>
+<header style="background-color: #e600e6">
     <h1>@ViewData["Title"]</h1>
     @{
         if (!Model.role.Equals(""))
         {
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                <button type="submit" class="nav-link btn btn-link text-dark">Click here to Logout</button>
+        <div class="text-center">
+            <form class="form-inline text-center" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <button type="submit" class="nav-link btn btn-link " style="color: white; background-color: #924091">
+                    <h1>
+                        Click here to Logout
+                    </h1>
+                </button>
+
             </form>
+        </div>
         }
         else
         {

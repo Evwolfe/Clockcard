@@ -5,21 +5,25 @@
 <div style = "text-align:center">
     <section>
         <form id="account" class="cancel" method="post">
-            <img class="mb-4" src="img/Clockcard.png" alt="" width="157" height="157">
+            <img class="mb-4" src="img/Clockcard.png" alt="" width="180" height="180">
             <hr />
-            <h2>Clockcard</h2>
-            <div class="form-group" width="57">
-                <label asp-for="Input.Username"></label>
-                <input asp-for="Input.Username" class="form-control" width="57"/>
-                
+            <h1 style="color: #924091">Clockcard</h1>
+            <div class="form-group">
+                <h4><b><label asp-for="Input.Username"></label></b></h4>
+                <input asp-for="Input.Username" class="form-control">
+
             </div>
             <div class="form-group">
-                <label asp-for="Input.Password"></label>
+                <h4>
+                    <b>
+                        <label asp-for="Input.Password"></label>
+                    </b>
+                </h4>
                 <input type="password" asp-for="Input.Password" class="form-control" />
-                
+
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Log in</button>
+                <button type="submit" class="btn btn-primary" style="background-color: #924090; color: white">Log in</button>
             </div>
         </form>
     </section>

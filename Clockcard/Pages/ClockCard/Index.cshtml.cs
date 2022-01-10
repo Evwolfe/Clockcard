@@ -81,12 +81,12 @@ namespace Clockcard.Pages.ClockCard
 
                 }
             }
-            IList<ClockVM> TempList = new List<ClockVM>();
-            for(int i = 0; i < 10; i++)
-            {
-                TempList.Add(ClockVMList[i]);
-            }
-            ClockVMList = TempList;
+            //IList<ClockVM> TempList = new List<ClockVM>();
+            //for(int i = 0; i < 10; i++)
+            //{
+            //    TempList.Add(ClockVMList[i]);
+            //}
+            //ClockVMList = TempList;
             var Employeedata = _context.EmpDetails.ToListAsync().Result;
             EmployeesDict = new Dictionary<int, string>();
             foreach (var item in Employeedata)
@@ -136,12 +136,12 @@ namespace Clockcard.Pages.ClockCard
                 }
             }
 
-            IList<ClockVM> TempList = new List<ClockVM>();
-            for (int i = 0; i < 10; i++)
-            {
-                TempList.Add(ClockVMList[i]);
-            }
-            ClockVMList = TempList;
+            //IList<ClockVM> TempList = new List<ClockVM>();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    TempList.Add(ClockVMList[i]);
+            //}
+            //ClockVMList = TempList;
 
             var Employeedata = _context.EmpDetails.ToListAsync().Result;
             EmployeesDict = new Dictionary<int, string>();

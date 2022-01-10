@@ -5,36 +5,43 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+<h1>Delete Clocking</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3 style="color: #924091">Are you sure you want to delete these Clockings?</h3>
 <div>
-    <h4>Clock</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Clock.EMPREF)
+        <dt class="col-sm-2" style="color: #924091">
+            <h4>
+                <b>
+                    @Html.DisplayNameFor(model => model.Clock.EMPREF)</b></h4>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Clock.EMPREF)
+            <h4>
+               
+                    @Html.DisplayFor(model => model.Clock.EMPREF)</h4>
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Clock.STARTTIME)
+        <dt class="col-sm-2"style="color: #924091">
+            <h4><b>
+            @Html.DisplayNameFor(model => model.Clock.STARTTIME)</b></h4>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Clock.STARTTIME)
+            <h4>
+            @Html.DisplayFor(model => model.Clock.STARTTIME)</h4>
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Clock.ENDTIME)
+        <dt class="col-sm-2" style="color: #924091">
+            <h4>
+                <b>
+                    @Html.DisplayNameFor(model => model.Clock.ENDTIME)</b></h4>
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Clock.ENDTIME)
+            <h4>@Html.DisplayFor(model => model.Clock.ENDTIME)</h4>
         </dd>
     </dl>
     
     <form method="post">
         <input type="hidden" asp-for="Clock.ID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" style="background-color: #924091; border-color: #924091 "/>
+        <a asp-page="./Index"style="color: #924091"><h3><b>Back to List</b></h3></a>
     </form>
 </div>

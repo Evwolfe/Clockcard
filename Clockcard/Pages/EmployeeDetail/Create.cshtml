@@ -12,66 +12,98 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="EmpDetails.USERNAME" class="control-label"></label>
+                <h4>
+                    <b>
+                        <label asp-for="EmpDetails.USERNAME" class="control-label" style="color: #924091"></label>
+                    </b>
+                </h4>
                 <input asp-for="EmpDetails.USERNAME" class="form-control" />
                 <span asp-validation-for="EmpDetails.USERNAME" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmpDetails.PASSWORD" class="control-label"></label>
+                <h4>
+                    <b>
+                        <label asp-for="EmpDetails.PASSWORD" class="control-label" style="color: #924091"></label>
+                    </b>
+                </h4>
                 <input type="password" asp-for="EmpDetails.PASSWORD" class="form-control" />
                 <span asp-validation-for="EmpDetails.PASSWORD" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmpDetails.FIRSTNAME" class="control-label"></label>
+                <h4>
+                    <b>
+                        <label asp-for="EmpDetails.FIRSTNAME" class="control-label" style="color: #924091"></label>
+                    </b>
+                </h4>
                 <input asp-for="EmpDetails.FIRSTNAME" class="form-control" />
                 <span asp-validation-for="EmpDetails.FIRSTNAME" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmpDetails.SURNAME" class="control-label"></label>
+                <h4>
+                    <b>
+                        <label asp-for="EmpDetails.SURNAME" class="control-label" style="color: #924091"></label>
+                    </b>
+                </h4>
                 <input asp-for="EmpDetails.SURNAME" class="form-control" />
                 <span asp-validation-for="EmpDetails.SURNAME" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmpDetails.PHONE" class="control-label"></label>
+                <h4>
+                    <b>
+                        <label asp-for="EmpDetails.PHONE" class="control-label" style="color: #924091"></label>
+                    </b>
+                </h4>
                 <input asp-for="EmpDetails.PHONE" class="form-control" />
                 <span asp-validation-for="EmpDetails.PHONE" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmpDetails.EMAIL" class="control-label"></label>
+                <h4>
+                    <b>
+                        <label asp-for="EmpDetails.EMAIL" class="control-label" style="color: #924091"></label>
+                    </b>
+                </h4>
                 <input asp-for="EmpDetails.EMAIL" class="form-control" />
                 <span asp-validation-for="EmpDetails.EMAIL" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmpDetails.ROLE" class="control-label"></label>
+                <h4>
+                    <b>
+                        <label asp-for="EmpDetails.ROLE" class="control-label" style="color: #924091"></label>
+                    </b>
+                </h4>
                 @Html.DropDownListFor(m => m.EmpDetails.ROLE,
                 new SelectList(
                 Model.RoleDict,
                 "Key",
-                "Value"),new { @class = "form-control" })
+                "Value"), new { @class = "form-control" })
 
                 @*<input asp-for="EmpDetails.ROLE" class="form-control" />*@
                 <span asp-validation-for="EmpDetails.ROLE" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmpDetails.ISACTIVE" class="control-label"></label>
+                <h4>
+                    <b>
+                        <label asp-for="EmpDetails.ISACTIVE" class="control-label" style="color: #924091"></label>
+                    </b>
+                </h4>
                 @Html.DropDownListFor(m => m.EmpDetails.ISACTIVE,
                 new SelectList(
                 Model.ActiveDict,
                 "Key",
-                "Value"),new { @class = "form-control" })
+                "Value"), new { @class = "form-control" })
 
                 @*                <input asp-for="EmpDetails.ISACTIVE" class="form-control" />*@
                 <span asp-validation-for="EmpDetails.ISACTIVE" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" style="background-color: #924090; color: white"/>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index" style="color: #924091"><h4><b>Back</b></h4></a>
 </div>
 
 @section Scripts {

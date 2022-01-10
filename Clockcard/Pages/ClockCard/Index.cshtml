@@ -10,74 +10,82 @@
 @{
     if (Model.role.Equals("2") || Model.role.Equals("3"))
     {
-        <p>
-            <a asp-page="Create">Create New</a>
-        </p>
+        if (Model.role.Equals("3"))
+        {
+            <p>
+                <a asp-page="Create" style="color: #924091"><b><h3>Create Employee Clocking</h3></b></a>
+            </p>
+        }
         <div class="form-group">
-              <form id="emp" method="post" asp-page-handler="FilterTable">
-                <select class="form-control" 
-                        asp-for="selectedEmployee" 
-                        asp-items="Model.EmployeesSelectList" 
+            <form id="emp" method="post" asp-page-handler="FilterTable">
+                <select class="form-control"
+                        asp-for="selectedEmployee"
+                        asp-items="Model.EmployeesSelectList"
                         onchange="handleOnSubmit();">
                 </select>
-                </form>
+            </form>
         </div>
     }
 }
 
 
-    @{
-        if(Model.hasClockedIn == "False")
-        {
-            <form class="formclock" id="clockinForm" asp-page-handler="CreateClock" method="post">  
-                <button class="clockbutton" id="clockinbutton" type="submit" >
-                    Clock In
-                </button>
-            </form>
-        }
-        if(Model.hasClockedIn == "True")
-        {
-            <form class="formclock" id="clockOutForm" asp-page-handler="UpdateClock" method="post">  
-                <button class="clockbutton" id="clockoutbutton" type="submit">
-                    Clock out
-                </button>
-            </form>
-        }
+@{
+    if (Model.hasClockedIn == "False")
+    {
+        <form class="formclock" id="clockinForm" asp-page-handler="CreateClock" method="post">
+            <button class="clockbutton" id="clockinbutton" type="submit">
+                Clock In
+            </button>
+        </form>
     }
+    if (Model.hasClockedIn == "True")
+    {
+        <form class="formclock" id="clockOutForm" asp-page-handler="UpdateClock" method="post">
+            <button class="clockbutton" id="clockoutbutton" type="submit">
+                Clock out
+            </button>
+        </form>
+    }
+}
 <style>
-    .clockbutton{
-            width: 6em;
-            height: 3em;
-            border-radius: 3em;
-            background-color: purple;
-            color: white;
-            font-size: 2em;
-            margin: 0 0 0.5em 0;
+    .clockbutton {
+        width: 6em;
+        height: 3em;
+        border-radius: 3em;
+        background-color: #924091;
+        color: white;
+        font-size: 2em;
+        margin: 0 0 0.5em 0;
     }
-    .formclock{
-        display:flex;
-        justify-content:center;
+
+    .formclock {
+        display: flex;
+        justify-content: center;
     }
 </style>
-<table class="table">
+<table class="table" style="color: #924091">
+
+
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ClockList[0].EMPREF)
+                <h3> @Html.DisplayNameFor(model => model.ClockList[0].EMPREF)</h3>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClockVMList[0].FullName)
+                <h3>@Html.DisplayNameFor(model => model.ClockVMList[0].FullName)</h3>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClockList[0].STARTTIME)
+                <h3>@Html.DisplayNameFor(model => model.ClockList[0].STARTTIME)</h3>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClockList[0].ENDTIME)
+                <h3>@Html.DisplayNameFor(model => model.ClockList[0].ENDTIME)</h3>
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
+
+
+    <tbody style="color: white">
         @foreach (var item in Model.ClockVMList)
         {
             <tr>
@@ -99,9 +107,9 @@
 
                         if (Model.role.Equals("2") || Model.role.Equals("3"))
                         {
-                            <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
+                            <a asp-page="./Edit" asp-route-id="@item.ID" style="color: #924091"><b>Edit |</b></a>
                             @*<a asp-page="./Details" asp-route-id="@item.ID">Details</a> |*@
-                            <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                            <a asp-page="./Delete" asp-route-id="@item.ID" style="color: #924091"><b>Delete</b></a>
                         }
                     }
 
@@ -110,34 +118,35 @@
         }
     </tbody>
 </table>
-<td>
-    <a href="~/Secured">Main Menu</a>
-</td>
-
+<div class="text-center">
+    
+        <a href="~/Secured" style="color: #924091"><h3><b>Main Menu</b></h3></a>
+    
+</div>
 @section Scripts{
     <script>
-        function handleOnSubmit(){
+        function handleOnSubmit() {
 
             //document.getElementById("emp").preventDefault();
             document.getElementById("emp").submit();
             //this.form.submit(); return false;
             return false;
         }
-        //function handleOnChange(selectedID){
-        //    console.log(selectedID);
-        //    $.ajax({
-        //        type: "POST",
-        //        url: "?handler=FilterTable",
-        //        headers: { "cache-control": "no-cache" },
-        //        contentType: 'application/json',
-        //        data: JSON.stringify({ param: selectedID }),
-        //        success: function (result) {
-        //            console.log(result)
-        //        },
-        //        failure: function (error) {
-        //            console.log(error)
-        //        }
-        //    });
-        //}
+                //function handleOnChange(selectedID){
+                //    console.log(selectedID);
+                //    $.ajax({
+                //        type: "POST",
+                //        url: "?handler=FilterTable",
+                //        headers: { "cache-control": "no-cache" },
+                //        contentType: 'application/json',
+                //        data: JSON.stringify({ param: selectedID }),
+                //        success: function (result) {
+                //            console.log(result)
+                //        },
+                //        failure: function (error) {
+                //            console.log(error)
+                //        }
+                //    });
+                //}
     </script>
 }

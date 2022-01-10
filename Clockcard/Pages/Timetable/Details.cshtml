@@ -1,7 +1,7 @@
 ﻿@page
 @model Clockcard.Pages.Timetable.DetailsModel
 @section Stylesheets{
-<link href="@Url.Content("~/css/timetablejs.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/css/timetablejs.css")" rel="stylesheet" type="text/css" />
 }
 @{
     ViewData["Title"] = "Details";
@@ -10,13 +10,13 @@
 <h1>Employee Timetable</h1>
 
 
-<div class="timetable" style="height:400px; width:100%;"></div>
+<div class="timetable" style="height:400px; width:100%; color: black"></div>
 <div class="text-center">
     @section Scripts
     {
-    <script src="@Url.Content("~/js/timetable.js")"></script>
+        <script src="@Url.Content("~/js/timetable.js")"></script>
 
-    <script>
+        <script>
         var timetable = new Timetable();
         timetable.setScope(0, 23);
         var Mondaystarttime = new Date('@(Model.Timeline.MONDAYSTARTTIME.Year)', '@(Model.Timeline.MONDAYSTARTTIME.Month)', '@(Model.Timeline.MONDAYSTARTTIME.Day)', '@(Model.Timeline.MONDAYSTARTTIME.Hour)', '@(Model.Timeline.MONDAYSTARTTIME.Minute)');
@@ -44,7 +44,7 @@
         timetable.addEvent('Sunday', 'Sunday', Sundaystarttime, Sundayendtime);
         var renderer = new Timetable.Renderer(timetable);
         renderer.draw('.timetable'); // any css selector
-    </script>
+        </script>
 
     }
 </div>
@@ -54,16 +54,16 @@
 
         if (Model.role.Equals("2") || Model.role.Equals("3"))
         {
-            <a asp-page="./Edit" asp-route-id="@Model.Timeline.ID">Edit</a>
+            <a asp-page="./Edit" asp-route-id="@Model.Timeline.ID"style="color: #924091"><h4><b>Edit</b></h4></a>
         }
         if (!Model.role.Equals("1"))
         {
-            <a asp-page="./Index">Back to List</a>
+            <a asp-page="./Index"style="color: #924091"><h4><b>Back</b></h4></a>
         }
+        <a href="~/Secured"style="color: #924091"><h4><b>Main Menu</b></h4></a>
     }
 
 
 </div>
 <td>
-    <a href="~/Secured">Main Menu</a>
 </td>
